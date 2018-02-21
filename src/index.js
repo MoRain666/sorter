@@ -19,17 +19,17 @@ class Sorter {
     return this.array;
   }
 
-  sort(indices) { //[7,6,5,48,93,1,0,14],index=[6,3,5,1];
+  sort(indices) { 
     let afterAllArray = this.array;
-    let preArray = []; //[6,48,1,0],after = [0,1,6,48]
-    let indicesAfterSort = indices.sort(); //[1,3,5,6]
+    let preArray = []; 
+    let indicesAfterSort = indices.sort(); 
     for(let i = 0; i <= indices.length - 1; i++){
       preArray.push(this.array[indices[i]]); 
     }
     for(let i = 0; i <= indices.length - 1; i++){
       afterAllArray[indices[i]] = (preArray.sort())[i]; 
     }
-    return afterAllArray; // [7,0,5,1,93,6,48,14]
+    return afterAllArray; 
   }
 
   setComparator(compareFunction) {
