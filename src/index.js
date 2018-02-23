@@ -1,6 +1,7 @@
 class Sorter {
   constructor() {
     this.array = [];
+    this.condition = false;
   }
 
   add(element) {
@@ -27,13 +28,25 @@ class Sorter {
       preArray.push(this.array[indices[i]]); 
     }
     for(let i = 0; i <= indices.length - 1; i++){
-      afterAllArray[indices[i]] = (preArray.sort())[i]; 
+      afterAllArray[indices[i]] = (preArray.sort(this.compareFunction))[i]; 
     }
     return afterAllArray; 
   }
 
+  compareFunction(first, second)
+{
+  if (first == second)
+        return 0;
+    if (first < second)
+        return -1;
+    else
+        return 1; 
+} 
+ reverseCompareFunction(left, right){ right - left;
+  sorter.setComparator(reverseCompareFunction);
+ }
   setComparator(compareFunction) {
-    return this.array.sort(compareFunction);
+    this.compareFunction = compareFunction;
   }
 }
 
